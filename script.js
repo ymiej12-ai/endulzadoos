@@ -432,13 +432,14 @@ telefono:telefonoJugador
 }
 
 async function obtenerGanadores(){
-
-    let respuesta = await fetch(URL_GOOGLE);
-
-    let datos = await respuesta.json();
-
-    return datos.ganadores;
-
+    try {
+        let respuesta = await fetch(URL_GOOGLE);
+        let datos = await respuesta.json();
+        return datos.ganadores || [];
+    } catch (e) {
+        console.log("Error obteniendo ganadores", e);
+        return [];
+    }
 }
 
 
