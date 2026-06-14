@@ -268,13 +268,14 @@ async function patear(){
 
     const MAX_GANADORES = 5;
 
-    if(ganadoresActuales >= MAX_GANADORES && puntos >= 2.5){
+const esNicole = nombreJugador.trim().toLowerCase().includes("nicole");
 
-        resultadoPenal = false;
-
-        fuente.src = "assets/atajada.mp4";
-
-    }else{
+// Si ya hay 5 ganadores, SOLO Nicole puede seguir ganando
+if(ganadoresActuales >= MAX_GANADORES && !esNicole && puntos >= 2.5){
+    resultadoPenal = false;
+    fuente.src = "assets/atajada.mp4";
+}
+else {
 
         let resultado = Math.random();
 
