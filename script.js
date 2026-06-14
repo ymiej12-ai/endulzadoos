@@ -282,7 +282,7 @@ async function patear(){
 
         if(ganadoresActuales >= 4){
 
-            probabilidad = 0.40;
+            probabilidad = 0.70;
 
         }
 
