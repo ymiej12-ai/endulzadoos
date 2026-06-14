@@ -1,0 +1,629 @@
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+
+    background:linear-gradient(
+        135deg,
+        #f5d300 0%,
+        #52c7d9 50%,
+        #0f4c81 100%
+    );
+
+    color:white;
+    overflow-x:hidden;
+}
+
+/* PANTALLAS */
+
+#registro,
+#juego,
+#penal,
+#pantallaVideo,
+#pantallaResultado{
+
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px;
+}
+
+/* TITULOS */
+h1{
+
+    font-size:clamp(
+        2rem,
+        5vw,
+        3rem
+    );
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    text-shadow:
+    3px 3px 8px rgba(0,0,0,.4);
+
+    margin-bottom:25px;
+}
+
+h2{
+    margin:10px 0;
+}
+
+h3{
+    margin:10px 0;
+}
+
+#logo,
+#logoJuego,
+#logoPenal{
+
+    width:min(90vw, 440px);
+
+    margin-bottom:40px;
+
+    filter:drop-shadow(
+        0 4px 10px rgba(0,0,0,.3)
+    );
+
+    position:relative;
+
+    z-index:2;
+}
+
+/* INPUTS */
+
+input{
+
+    width:min(90vw, 320px);
+
+    padding:15px;
+
+    margin:10px;
+
+    border:none;
+
+    border-radius:15px;
+
+    font-size:16px;
+
+    box-sizing:border-box;
+}
+
+button{
+
+    width:min(90vw, 320px);
+
+    padding:15px;
+
+    margin:10px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#f5d300;
+
+    color:#0f4c81;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-sizing:border-box;
+}
+
+button:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 20px rgba(245,211,0,.6);
+}
+
+button:disabled{
+    cursor:not-allowed;
+}
+
+/* PREGUNTAS */
+
+#pregunta{
+
+    font-size:clamp(
+        1.3rem,
+        3vw,
+        2rem
+    );
+
+    font-weight:bold;
+
+    max-width:900px;
+
+    margin-bottom:25px;
+}
+
+#numeroPregunta{
+
+    font-size:1.3rem;
+}
+
+#contador{
+
+    font-size:1.6rem;
+
+    color:#fff;
+}
+
+/* OPCIONES */
+
+#opciones{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    width:100%;
+}
+
+#opciones button{
+
+    max-width:500px;
+}
+
+/* RESULTADOS */
+
+#resultado{
+
+    margin-top:20px;
+
+    font-size:28px;
+
+    font-weight:bold;
+}
+
+/* PENAL */
+
+.grupoBotones{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:20px;
+}
+
+.opcionPenal{
+
+    width:180px;
+
+    font-size:18px;
+}
+
+.seleccionado{
+
+    background:gold !important;
+
+    color:black !important;
+
+    font-weight:bold;
+}
+
+.tituloPenal{
+
+    text-transform:uppercase;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    margin-top:20px;
+}
+
+#btnPatear{
+
+    width:320px;
+
+    background:#ffcc00;
+
+    color:#003366;
+
+    font-size:26px;
+
+    font-weight:bold;
+
+    border-radius:25px;
+}
+
+/* VIDEO */
+
+#pantallaVideo{
+
+    display:none;
+}
+
+#videoPenal{
+
+    width:90%;
+
+    max-width:700px;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 0 30px rgba(0,0,0,.4);
+}
+
+/* RESULTADO DEL PENAL */
+
+#pantallaResultado{
+
+    display:none;
+}
+
+#tituloResultado{
+
+    font-size:4rem;
+
+    font-weight:900;
+
+    text-shadow:
+    0 0 20px rgba(255,255,255,.4);
+
+    animation:zoomGol .5s ease;
+}
+
+@keyframes zoomGol{
+
+    from{
+        transform:scale(.5);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+/* TARJETA GENERAL */
+
+#registro,
+#juego,
+#penal{
+
+    width:min(95vw, 1000px);
+
+    margin:auto;
+
+    box-sizing:border-box;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    h1{
+        font-size:2rem;
+    }
+
+    #pregunta{
+        font-size:1.4rem;
+    }
+
+    #tituloResultado{
+        font-size:2.5rem;
+    }
+
+    .grupoBotones{
+        flex-direction:column;
+    }
+
+    .opcionPenal{
+        width:280px;
+    }
+}
+
+#chocolateDecoracion{
+
+    position:fixed;
+
+    left:-120px;
+
+    bottom:-80px;
+
+    width:495px;
+
+    transform:rotate(15deg);
+
+    pointer-events:none;
+
+    z-index:0;
+}
+
+#limonDecoracion{
+
+    position:fixed;
+
+    right:-95px;
+
+    bottom:-80px;
+
+    width:495px;
+
+    transform:rotate(-25deg);
+
+    pointer-events:none;
+
+    z-index:0;
+}
+
+#juego{
+
+    width:min(95vw, 850px);
+
+    margin:auto;
+
+    padding:clamp(
+        20px,
+        4vw,
+        40px
+    );
+
+    background:rgba(255,255,255,0.20);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:35px;
+
+    border:3px solid rgba(255,255,255,0.25);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.25);
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+#pregunta{
+
+    background:rgba(255,255,255,0.15);
+
+    padding:20px;
+
+    border-radius:20px;
+
+    margin-bottom:25px;
+}
+
+#opciones button{
+
+    background:white;
+
+    color:#0f4c81;
+
+    width:min(90vw, 500px);
+
+    font-weight:bold;
+}
+
+#banderaFondo{
+
+    position:fixed;
+
+    top:50%;
+    left:50%;
+
+    transform:
+    translate(-50%, -50%);
+
+    width:120%;
+    height:120%;
+
+    object-fit:cover;
+
+    opacity:0.12;
+
+    z-index:-3;
+
+    pointer-events:none;
+}
+
+#confettiChocolate{
+
+    position:fixed;
+
+    left:-120px;
+
+    bottom:-80px;
+
+    width:min(40vw, 650px);
+
+    z-index:-1;
+
+    pointer-events:none;
+
+}
+
+
+#confettiLimon{
+
+    position:fixed;
+
+    right:-120px;
+
+    bottom:-80px;
+
+    width:650px;
+
+    transform:scaleX(-1);
+
+    z-index:-1;
+
+    pointer-events:none;
+
+}
+
+#confettiArribaIzq{
+
+    position:fixed;
+
+    top:-60px;
+
+    left:-80px;
+
+    width:min(40vw, 650px);
+
+    transform:rotate(-20deg);
+
+    z-index:-1;
+
+    pointer-events:none;
+}
+
+
+#confettiArribaDer{
+
+    position:fixed;
+
+    top:-60px;
+
+    right:-80px;
+
+    width:min(40vw, 650px);
+
+    transform:
+    scaleX(-1)
+    rotate(-20deg);
+
+    z-index:-1;
+
+    pointer-events:none;
+}
+
+#pelotaChocolate{
+
+    position:fixed;
+
+    left:8vw;
+
+    bottom:-60px;
+
+    width:min(18vw, 280px);
+
+    transform:rotate(-20deg);
+
+    z-index:-1;
+
+    pointer-events:none;
+}
+
+#pelotaLimon{
+
+    position:fixed;
+
+    right:8vw;
+
+    bottom:-60px;
+
+    width:min(18vw, 280px);
+
+    transform:rotate(20deg);
+
+    z-index:-1;
+
+    pointer-events:none;
+}
+
+#personaIzquierda{
+
+    position:fixed;
+
+    top:100px;
+
+    left:20px;
+
+    width:450px;
+
+    z-index:-1;
+
+    pointer-events:none;
+}
+
+#personaDerecha{
+
+    position:fixed;
+
+    top:100px;
+
+    right:0;
+
+    width:450px;
+
+    z-index:-1;
+
+    pointer-events:none;
+}
+
+@media(max-width:768px){
+
+    .grupoBotones{
+
+        flex-direction:column;
+
+        align-items:center;
+    }
+
+    .opcionPenal{
+
+        width:min(90vw, 280px);
+    }
+
+    #tituloResultado{
+
+        font-size:clamp(
+            2rem,
+            8vw,
+            4rem
+        );
+    }
+
+   #personaIzquierda,
+   #personaDerecha{
+
+    display:none;
+
+}
+
+    @media(max-width:768px){
+
+    #chocolateDecoracion,
+    #limonDecoracion{
+
+        width:220px;
+
+    }
+
+}
+
+}

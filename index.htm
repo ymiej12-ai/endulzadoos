@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Mundial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <img src="assets/chocolate.png" id="chocolateDecoracion">
+    <img src="assets/limon.png" id="limonDecoracion">
+    <img src="assets/pelota.png" id="pelotaChocolate">
+    <img src="assets/pelota.png" id="pelotaLimon">
+    <img src="assets/confetti.png" id="confettiChocolate">
+    <img src="assets/confetti.png" id="confettiLimon">
+    <img src="assets/confetti.png" id="confettiArribaIzq">
+    <img src="assets/confetti.png" id="confettiArribaDer">
+    <img src="assets/izquierda.png" id="personaIzquierda">
+    <img src="assets/derecha.png" id="personaDerecha">
+    <img src="assets/bandera.gif" id="banderaFondo">
+
+
+    <!-- REGISTRO -->
+    <div id="registro">
+       
+     <img
+        src="assets/logo-endulzados.png"
+        id="logo">
+        
+        <h1> TRIVIA DEL FÚTBOL ECUATORIANO </h1>
+
+        <input
+            type="text"
+            id="nombre"
+            placeholder="Nombre Completo">
+
+        <input 
+            type="tel" 
+            id="telefono" 
+            placeholder="Teléfono"
+            maxlength="10"
+            inputmode="numeric">
+            
+        <input
+            type="email"
+            id="correo"
+            placeholder="Correo">
+
+        <button onclick="registrar()">
+            COMENZAR
+        </button>
+
+    </div>
+
+    <!-- JUEGO -->
+    <div id="juego" style="display:none;">
+
+     <img
+        src="assets/logo-endulzados.png"
+        id="logo">
+
+        <h2 id="contador">
+            Puntos: 0
+        </h2>
+
+        <h2 id="numeroPregunta">
+            Pregunta 1 de 4
+        </h2>
+
+        <h2 id="pregunta"></h2>
+
+        <div id="opciones"></div>
+
+    </div>
+
+    <!-- PENAL -->
+    <div id="penal" style="display:none;">
+
+     <img
+        src="assets/logo-endulzados.png"
+        id="logo">
+
+        <h1>⚽ PENAL ⚽</h1>
+
+        <h2>
+            ¡Respuesta correcta!
+        </h2>
+
+        <p>
+            Escoge dónde patear el balón
+        </p>
+
+        <h3 class="tituloPenal">
+            ALTURA
+        </h3>
+
+        <div class="grupoBotones">
+
+            <button
+                class="opcionPenal"
+                onclick="seleccionarAltura(this,'Arriba')">
+                ARRIBA
+            </button>
+
+            <button
+                class="opcionPenal"
+                onclick="seleccionarAltura(this,'Centro')">
+                CENTRO
+            </button>
+
+            <button
+                class="opcionPenal"
+                onclick="seleccionarAltura(this,'Abajo')">
+                ABAJO
+            </button>
+
+        </div>
+
+        <h3 class="tituloPenal">
+            DIRECCIÓN
+        </h3>
+
+        <div class="grupoBotones">
+
+            <button
+                class="opcionPenal"
+                onclick="seleccionarDireccion(this,'Izquierda')">
+                IZQUIERDA
+            </button>
+
+            <button
+                class="opcionPenal"
+                onclick="seleccionarDireccion(this,'Centro')">
+                CENTRO
+            </button>
+
+            <button
+                class="opcionPenal"
+                onclick="seleccionarDireccion(this,'Derecha')">
+                DERECHA
+            </button>
+
+        </div>
+
+        <br>
+
+        <button
+            id="btnPatear"
+            onclick="patear()">
+            PATEAR ⚽
+        </button>
+
+    </div>
+
+    <!-- PANTALLA VIDEO -->
+    <div id="pantallaVideo" style="display:none;">
+
+        <video
+            id="videoPenal"
+            width="600"
+            muted>
+
+            <source
+                id="fuenteVideo"
+                src=""
+                type="video/mp4">
+
+        </video>
+
+    </div>
+
+    <!-- RESULTADO PENAL -->
+    <div id="pantallaResultado" style="display:none;">
+
+        <h1 id="tituloResultado"></h1>
+
+        <button onclick="continuarJuego()">
+            CONTINUAR
+        </button>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
