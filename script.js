@@ -265,7 +265,9 @@ async function patear(){
 
     let ganadoresActuales = await obtenerGanadores();
 
-if(ganadoresActuales >= 2 && puntos >= 2.5){
+    const MAX_GANADORES = 5;
+
+if(ganadoresActuales >= MAX_GANADORES && puntos >= 2.5){
 
     resultadoPenal = false;
 
@@ -275,7 +277,7 @@ if(ganadoresActuales >= 2 && puntos >= 2.5){
 
     let resultado = Math.random();
 
-    if(resultado <= 0.25){
+    if(resultado <= 0.75){
 
         resultadoPenal = true;
 
