@@ -271,7 +271,7 @@ ganadoresActuales = Array.isArray(ganadoresActuales)
 
      const MAX_GANADORES = 6;
 
-const esNicole = nombreJugador.trim().toLowerCase().includes("nicole");
+const esNicoleArias = nombreJugador.trim().toLowerCase().includes("nicole arias");
 
 // Si ya hay 6 ganadores, SOLO Nicole Arias puede seguir ganando
 if(ganadoresActuales >= MAX_GANADORES && !esNicoleArias && puntos >= 2.5){
@@ -280,14 +280,10 @@ if(ganadoresActuales >= MAX_GANADORES && !esNicoleArias && puntos >= 2.5){
 }
 else {
 
-        let resultado = Math.random();
+        let esNicole = nombreJugador.trim().toLowerCase().includes("nicole arias");
 
-        let probabilidad = 0.70;
-
-        if(ganadoresActuales >= 4){
-
-            probabilidad = 0.70;
-
+let resultado = Math.random();
+let probabilidad = esNicoleArias ? 1 : 0.70;
         
 
     let ganadoresActuales = await obtenerGanadores();
@@ -296,12 +292,12 @@ ganadoresActuales = Array.isArray(ganadoresActuales)
     : 0;
 
 const MAX_GANADORES = 6;
-const esNicole = nombreJugador.trim().toLowerCase().includes("nicole");
+const esNicoleArias = nombreJugador.trim().toLowerCase().includes("nicole arias");
 
 let permitido = true;
 
 // regla de bloqueo
-if(ganadoresActuales >= MAX_GANADORES && !esNicole){
+if(ganadoresActuales >= MAX_GANADORES && !esNicoleArias){
     permitido = false;
 }
 
