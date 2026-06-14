@@ -288,23 +288,40 @@ else {
 
             probabilidad = 0.70;
 
-        }
+        
 
-        if(resultado <= probabilidad){
+    let ganadoresActuales = await obtenerGanadores();
+ganadoresActuales = Array.isArray(ganadoresActuales)
+    ? ganadoresActuales.length
+    : 0;
 
-            resultadoPenal = true;
+const MAX_GANADORES = 6;
+const esNicole = nombreJugador.trim().toLowerCase().includes("nicole");
 
-            fuente.src = "assets/gol.mp4";
+let permitido = true;
 
-        }else{
+// regla de bloqueo
+if(ganadoresActuales >= MAX_GANADORES && !esNicole){
+    permitido = false;
+}
 
-            resultadoPenal = false;
+// decidir resultado SIEMPRE
+if(!permitido){
+    resultadoPenal = false;
+    fuente.src = "assets/atajada.mp4";
+} else {
+    let resultado = Math.random();
+    let probabilidad = 0.70;
 
-            fuente.src = "assets/atajada.mp4";
-
-        }
-
+    if(resultado <= probabilidad){
+        resultadoPenal = true;
+        fuente.src = "assets/gol.mp4";
+    } else {
+        resultadoPenal = false;
+        fuente.src = "assets/atajada.mp4";
     }
+
+
 
     video.load();
     video.play();
