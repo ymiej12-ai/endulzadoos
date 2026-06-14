@@ -241,6 +241,7 @@ function verificarRespuesta(respuesta){
 
 }
 
+
 async function patear(){
 
     if(
@@ -267,31 +268,39 @@ async function patear(){
 
     const MAX_GANADORES = 5;
 
-if(ganadoresActuales >= MAX_GANADORES && puntos >= 2.5){
-
-    resultadoPenal = false;
-
-    fuente.src = "assets/atajada.mp4";
-
-}else{
-
-    let resultado = Math.random();
-
-    if(resultado <= 0.75){
-
-        resultadoPenal = true;
-
-        fuente.src = "assets/gol.mp4";
-
-    }else{
+    if(ganadoresActuales >= MAX_GANADORES && puntos >= 2.5){
 
         resultadoPenal = false;
 
         fuente.src = "assets/atajada.mp4";
 
-    }
+    }else{
 
-}
+        let resultado = Math.random();
+
+        let probabilidad = 0.70;
+
+        if(ganadoresActuales >= 4){
+
+            probabilidad = 0.40;
+
+        }
+
+        if(resultado <= probabilidad){
+
+            resultadoPenal = true;
+
+            fuente.src = "assets/gol.mp4";
+
+        }else{
+
+            resultadoPenal = false;
+
+            fuente.src = "assets/atajada.mp4";
+
+        }
+
+    }
 
     video.load();
     video.play();
@@ -324,7 +333,6 @@ if(ganadoresActuales >= MAX_GANADORES && puntos >= 2.5){
     };
 
 }
-
 function continuarJuego(){
 
     document.getElementById("pantallaResultado").style.display =
