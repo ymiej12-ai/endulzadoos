@@ -237,7 +237,7 @@ function verificarRespuesta(respuesta){
 
         },1000);
 
-    };
+    }
 
  }
 
