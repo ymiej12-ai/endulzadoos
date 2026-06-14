@@ -265,13 +265,16 @@ async function patear(){
     "flex";
 
     let ganadoresActuales = await obtenerGanadores();
+ganadoresActuales = Array.isArray(ganadoresActuales)
+    ? ganadoresActuales.length
+    : 0;
 
-    const MAX_GANADORES = 6;
+     const MAX_GANADORES = 6;
 
 const esNicole = nombreJugador.trim().toLowerCase().includes("nicole");
 
-// Si ya hay 5 ganadores, SOLO Nicole puede seguir ganando
-if(ganadoresActuales >= MAX_GANADORES && !esNicole && puntos >= 2.5){
+// Si ya hay 6 ganadores, SOLO Nicole Arias puede seguir ganando
+if(ganadoresActuales >= MAX_GANADORES && !esNicoleArias && puntos >= 2.5){
     resultadoPenal = false;
     fuente.src = "assets/atajada.mp4";
 }
