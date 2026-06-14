@@ -271,10 +271,11 @@ ganadoresActuales = Array.isArray(ganadoresActuales)
 
      const MAX_GANADORES = 6;
 
-const esNicole = nombreJugador.trim().toLowerCase().includes("nicole");
+const esNicoleArias =
+    nombreJugador.trim().toLowerCase() === "nicole arias";
 
 // Si ya hay 6 ganadores, SOLO Nicole Arias puede seguir ganando
-if(ganadoresActuales >= MAX_GANADORES && !esNicoleArias && puntos >= 2.5){
+if(ganadoresActuales >= MAX_GANADORES && !esNicoleArias){
     resultadoPenal = false;
     fuente.src = "assets/atajada.mp4";
 }
@@ -288,17 +289,6 @@ else {
 
             probabilidad = 0.70;
 
-        
-
-    let ganadoresActuales = await obtenerGanadores();
-ganadoresActuales = Array.isArray(ganadoresActuales)
-    ? ganadoresActuales.length
-    : 0;
-
-const MAX_GANADORES = 6;
-const esNicole = nombreJugador.trim().toLowerCase().includes("nicole");
-
-let permitido = true;
 
 // regla de bloqueo
 if(ganadoresActuales >= MAX_GANADORES && !esNicole){
