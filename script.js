@@ -237,7 +237,9 @@ function verificarRespuesta(respuesta){
 
         },1000);
 
-    }
+    };
+
+ }
 
 async function patear(){
 
