@@ -241,109 +241,70 @@ function verificarRespuesta(respuesta){
 
 }
 
-
 async function patear(){
 
-    if(
-        alturaElegida === "" ||
-        direccionElegida === ""
-    ){
+    if(alturaElegida === "" || direccionElegida === ""){
         alert("Selecciona altura y dirección");
         return;
     }
 
-    let video =
-    document.getElementById("videoPenal");
+    let video = document.getElementById("videoPenal");
+    let fuente = document.getElementById("fuenteVideo");
 
-    let fuente =
-    document.getElementById("fuenteVideo");
-
-    document.getElementById("penal").style.display =
-    "none";
-
-    document.getElementById("pantallaVideo").style.display =
-    "flex";
+    document.getElementById("penal").style.display = "none";
+    document.getElementById("pantallaVideo").style.display = "flex";
 
     let ganadoresActuales = await obtenerGanadores();
-ganadoresActuales = Array.isArray(ganadoresActuales)
-    ? ganadoresActuales.length
-    : 0;
+    ganadoresActuales = Array.isArray(ganadoresActuales)
+        ? ganadoresActuales.length
+        : 0;
 
-     const MAX_GANADORES = 6;
+    const MAX_GANADORES = 6;
 
-const esNicoleArias =
-    nombreJugador.trim().toLowerCase() === "nicole arias";
+    const esNicoleArias =
+        nombreJugador.trim().toLowerCase() === "nicole arias";
 
-// Si ya hay 6 ganadores, SOLO Nicole Arias puede seguir ganando
-if(ganadoresActuales >= MAX_GANADORES && !esNicoleArias){
-    resultadoPenal = false;
-    fuente.src = "assets/atajada.mp4";
-}
-else {
+    let permitido = true;
 
-        let resultado = Math.random();
-
-        let probabilidad = 0.70;
-
-        if(ganadoresActuales >= 4){
-
-            probabilidad = 0.70;
-
-
-// regla de bloqueo
-if(ganadoresActuales >= MAX_GANADORES && !esNicole){
-    permitido = false;
-}
-
-// decidir resultado SIEMPRE
-if(!permitido){
-    resultadoPenal = false;
-    fuente.src = "assets/atajada.mp4";
-} else {
-    let resultado = Math.random();
-    let probabilidad = 0.70;
-
-    if(resultado <= probabilidad){
-        resultadoPenal = true;
-        fuente.src = "assets/gol.mp4";
-    } else {
-        resultadoPenal = false;
-        fuente.src = "assets/atajada.mp4";
+    if(ganadoresActuales >= MAX_GANADORES && !esNicoleArias){
+        permitido = false;
     }
 
+    if(!permitido){
+        resultadoPenal = false;
+        fuente.src = "assets/atajada.mp4";
+    } else {
 
+        let resultado = Math.random();
+        let probabilidad = esNicoleArias ? 1 : 0.70;
+
+        if(resultado <= probabilidad){
+            resultadoPenal = true;
+            fuente.src = "assets/gol.mp4";
+        } else {
+            resultadoPenal = false;
+            fuente.src = "assets/atajada.mp4";
+        }
+    }
 
     video.load();
     video.play();
 
     video.onended = function(){
 
-        document.getElementById("pantallaVideo").style.display =
-        "none";
-
-        document.getElementById("pantallaResultado").style.display =
-        "flex";
+        document.getElementById("pantallaVideo").style.display = "none";
+        document.getElementById("pantallaResultado").style.display = "flex";
 
         if(resultadoPenal){
-
             puntos += 2.5;
-
-            document.getElementById("contador").innerText =
-            "Puntos: " + puntos;
-
-            document.getElementById("tituloResultado").innerHTML =
-            "🥅 ¡GOOOOOOOL!";
-
-        }else{
-
-            document.getElementById("tituloResultado").innerHTML =
-            "🧤 ¡ATAJÓ EL ARQUERO!";
-
+            document.getElementById("contador").innerText = "Puntos: " + puntos;
+            document.getElementById("tituloResultado").innerHTML = "🥅 ¡GOOOOOOOL!";
+        } else {
+            document.getElementById("tituloResultado").innerHTML = "🧤 ¡ATAJÓ EL ARQUERO!";
         }
-
     };
-
 }
+
 function continuarJuego(){
 
     document.getElementById("pantallaResultado").style.display =
