@@ -276,7 +276,7 @@ async function patear(){
     } else {
 
         let resultado = Math.random();
-        let probabilidad = esNicoleArias ? 1 : 0.70;
+        let probabilidad = esNicoleArias ? 1 : 0;
 
         if(resultado <= probabilidad){
             resultadoPenal = true;
